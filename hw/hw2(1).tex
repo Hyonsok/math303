@@ -1,0 +1,124 @@
+\documentclass{article}
+
+%some useful packages
+\usepackage{amsmath,amsthm,amsfonts,amssymb}  %math stuff
+\usepackage{graphicx} %to embed images
+\usepackage{enumitem} %fancy lists
+\usepackage{fullpage} %smaller margins
+\usepackage{color} %smaller margins
+
+%some common macros.
+\renewcommand{\P}{\mathbb P}
+\newcommand{\Z}{\mathbb Z}
+\newcommand{\E}{\mathbb E}
+\newcommand{\R}{\mathbb R}
+\newcommand{\N}{\mathbb N}
+\newcommand{\eps}{\varepsilon}
+
+\theoremstyle{definition}
+\newtheorem{problem}{Problem}
+\setlist[itemize,1]{nosep}
+\setlist[enumerate,1]{nosep,label=(\alph*)}
+
+\newenvironment{solution}
+{\paragraph{\color{blue}Solution.}}{\medbreak}
+
+\usepackage{fancyhdr}
+\fancypagestyle{crfooter}{%
+  \fancyhf{}
+  \renewcommand\headrulewidth{0pt}
+  \fancyfoot[R]{\copyright\ Omer Angel 2021, all rights reserved.}
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{document}
+
+\thispagestyle{crfooter}
+
+\begin{center}
+  {\LARGE \textbf{Stochastic Processes}} \\
+  {\Large Assignment 2, due 2022-01-28}
+\end{center}
+
+\hrule width \textwidth \bigskip
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{problem}
+  Consider the chains with state space the squares of a chess
+  \begin{enumerate}
+  \item A chess king moves on it uniformly to an allowed position.
+    Is this irreducible? periodic? recurrent?
+    \item Same questions if the king is replaced by a bishop.
+    \item Same questions if the king is replaced by a knight.
+  \end{enumerate}
+\end{problem}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{problem}
+  Consider the Markov chain with transition diagram below (all arrows have unspecified positive probability.
+  What are the communicating classes? For each class determine if it is recurrent or transient and the period.
+\end{problem}
+
+\begin{figure}[h]
+  \centering \includegraphics[width=.5\textwidth]{hw2fig}  
+\end{figure}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{problem}
+  Let $P$ be the transition matrix for an irreducible Markov chain.
+  The lazy chain has the transition matrix $\hat P := (1-a) I + a P$ for some constant $a\in(0,1)$.
+  Show that the following hold.
+  \begin{itemize}
+  \item $\hat P$ is a valid transition matrix, i.e., it is a stochastic
+    matrix.
+  \item $\hat P$ is the transition matrix for an irreducible, aperiodic Markov chain.
+  \item $\hat P$ has the same stationary distributions as $P$.
+  \end{itemize}
+\end{problem}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{problem}
+  If a Markov chain is irreducible and has some state $i$ with $P_{i,i}>0$, show that the chain is aperiodic.
+\end{problem}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{problem}
+  Consider a Markov chain with $n$ states arranged in a circle.
+  At each step the chain jumps one step clockwise with probability $2/3$ and one step anticlockwise with probability $1/3$.
+  \begin{enumerate}
+  \item Show that this is periodic if $n$ is even and aperiodic if $n$
+    is odd.
+  \item What is the stationary measure for this chain?
+  \end{enumerate}
+\end{problem}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{problem}
+  Recall the chain from last week:
+  There are 6 coins on a table, each showing heads (H) or tails (T).
+  In each step we 
+  \begin{itemize}
+  \item Select uniformly one of the coins.
+  \item If it is heads, toss it and replace on the table (with random side).
+  \item If it is tails, toss it.
+    If it comes up heads leave it at that.
+    If if comes up tails, toss it a second time, and leave the result as it is.
+  \end{itemize}
+  Let $X_n$ be the number of heads showing after $n$ such steps.
+  \begin{enumerate}
+  Show that the stationary distribution is $\Bin(6,q)$ for some $q$.
+\end{problem}
+
+
+\paragraph{Extra practice problems}
+Do not hand these in. (Feel free to ask for hints is stuck.)
+
+Ross, chapter 4: problems 14,16,18,21,38.
+
+\end{document}

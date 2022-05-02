@@ -1,0 +1,130 @@
+\documentclass{article}
+
+%some useful packages
+\usepackage{amsmath,amsthm,amsfonts,amssymb}  %math stuff
+\usepackage{graphicx} %to embed images
+\usepackage{enumitem} %fancy lists
+\usepackage{fullpage} %smaller margins
+\usepackage{color} %smaller margins
+
+%some common macros.
+\renewcommand{\P}{\mathbb P}
+\newcommand{\Z}{\mathbb Z}
+\newcommand{\E}{\mathbb E}
+\newcommand{\R}{\mathbb R}
+\newcommand{\N}{\mathbb N}
+\newcommand{\eps}{\varepsilon}
+\DeclareMathOperator{\Var}{Var}
+\DeclareMathOperator{\Poi}{Poi}
+\DeclareMathOperator{\Cov}{Cov}
+\DeclareMathOperator{\Exp}{Exp}
+\DeclareMathOperator{\Bin}{Bin}
+\DeclareMathOperator{\Geom}{Geom}
+
+\theoremstyle{definition}
+\newtheorem{problem}{Problem}
+\setlist[itemize,1]{nosep}
+\setlist[enumerate,1]{nosep,label=(\alph*)}
+
+\newenvironment{solution}
+{\paragraph{\color{blue}Solution.}}{\medbreak}
+
+\usepackage{fancyhdr}
+\fancypagestyle{crfooter}{%
+  \fancyhf{}
+  \renewcommand\headrulewidth{0pt}
+  \fancyfoot[R]{\copyright\ Omer Angel 2021, all rights reserved.}
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{document}
+
+\thispagestyle{crfooter}
+
+\begin{center}
+  {\LARGE \textbf{Stochastic Processes}} \\
+  {\Large Assignment 3, due 2022-02-04}
+\end{center}
+
+\hrule width \textwidth \bigskip
+
+\paragraph{Note:} From this assignment onward, start each problem on a \textbf{new page}. (Multiple pages for a single problem are fine if needed.)
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{problem}
+  Let $C$ be a communicating class of a Markov chain.
+  We say that $C$ is closed if $P_{ij} = 0$ for all states $i\in C$ and $j\not\in C$.
+  In other words, a communicating class is closed if there is no escape from that class.
+  \begin{enumerate}
+  \item Show that a finite communicating class $C$ is closed if and only if its states are recurrent.
+  \item Find an example of a Markov chain with no closed communicating class.
+  \item Show that a finite recurrent communicating class $C$ is positive-recurrent.
+  \end{enumerate}
+\end{problem}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{problem}
+  Yin and Yang play table tennis.
+  For each point one of the players serves.
+  The winner of a point becomes the server of the next point.
+  Suppose that Yin wins each point she serves with probability $p$, and wins each point that Yang serves with probability $q$.
+  \begin{enumerate}
+  \item Find the proportion of points that are won by Yin
+  \item Find the proportion of time that the server swaps.
+  \end{enumerate}
+\end{problem}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{problem}
+  A chess knight starts at the bottom left of a chess board and performs random moves.
+  At each stage, she picks one of the available legal moves with equal probability, independently of the earlier moves.
+  Let $X_n$ be her position after $n$ moves.
+  What is the mean number of moves before she returns to her starting square?
+\end{problem}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{problem}
+  Kaine is building a house of cards.
+  When there are $i$ cards, $a_i$ is the probability she adds another card without the house collapinsg, and otherwise it collapses and she starts from 0.
+  Let $X_n$ be the number of cards in the constructed house at time $n$.
+  This is a Markov chain with state space $\N = {0,1,2,\dots}$ with transition probabilities
+  \[
+    P_{i,i+1} = a_i \qquad \text{ and } \qquad p_{i,0} = 1-a_i, \]
+  where $a_i$ are numbers between 0 and 1.
+
+  Let $b_0 = 1$ and the $b_i$ the product $b_i = a_0a_1\dots a_i$.
+  Show that the chain is
+  \begin{enumerate}
+  \item Recurrent if and only if $\lim_{i\to\infty} b_i = 0$;
+  \item Positive recurrent if and only if $\sum_{i=0}^\infty b_i < infty$;
+  \item Find the stationary distribution in the positive recurrent case.
+  \end{enumerate}
+\end{problem}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{problem}
+  Maine (the person, not the state) has 4 umbrellas, some at the office and some at home.
+  Every time she commutes, if it rains and there is an umbrella by her, she takes one.
+  If all the umbrellas are at the other location, she gets wet.
+  Suppose each morning and afternoon it rains with some probability $q$, independently of all other times.
+  Let $X_n$ be the number of umbrellas at Maine's current location after $n$ trips.
+  For example, if $X_n=3$ there is one umbrella at the other location.
+  If it is raining, she takes one and $X_{n+1}=2$ otherwise $X_{n+1}=1$.
+  \begin{enumerate}
+  \item Find the stationary distribution for $X_n$.
+  \item Find the value of $q$ for which the probability of getting wet on an average trip is maximized.
+  \end{enumerate}
+\end{problem}
+
+
+\paragraph{Extra practice problems}
+Do not hand these in. (Feel free to ask for hints is stuck.)
+
+Ross, chapter 4: problems 32,36,41,49,26,27.
+
+\end{document}

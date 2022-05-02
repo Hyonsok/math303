@@ -1,0 +1,133 @@
+\documentclass{article}
+
+%some useful packages
+\usepackage{amsmath,amsthm,amsfonts,amssymb}  %math stuff
+\usepackage{graphicx} %to embed images
+\usepackage{enumitem} %fancy lists
+\usepackage{fullpage} %smaller margins
+\usepackage{color} %smaller margins
+
+%some common macros.
+\renewcommand{\P}{\mathbb P}
+\newcommand{\Z}{\mathbb Z}
+\newcommand{\E}{\mathbb E}
+\newcommand{\R}{\mathbb R}
+\newcommand{\N}{\mathbb N}
+\newcommand{\eps}{\varepsilon}
+
+\theoremstyle{definition}
+\newtheorem{problem}{Problem}
+\setlist[itemize,1]{nosep}
+\setlist[enumerate,1]{nosep,label=(\alph*)}
+
+\newenvironment{solution}
+{\paragraph{\color{blue}Solution.}}{\medbreak}
+
+\usepackage{fancyhdr}
+\fancypagestyle{crfooter}{%
+  \fancyhf{}
+  \renewcommand\headrulewidth{0pt}
+  \fancyfoot[R]{\copyright\ Omer Angel 2021, all rights reserved.}
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{document}
+
+\thispagestyle{crfooter}
+
+\begin{center}
+  {\LARGE \textbf{Mathematical Game theory}} \\
+  {\Large Assignment 1, due 2022-01-21}
+\end{center}
+
+\hrule width \textwidth \bigskip
+
+\begin{problem}
+  A Markov chain with state space $S=\{0,1,2\}$ has the transition matrix
+  \[
+    P =
+    \begin{pmatrix}
+      .2 & .3 & .5 \\
+      0 & .4 & .6 \\
+      .7 & .3 & 0
+    \end{pmatrix}.
+  \]
+  If $X_0$ has distribution vector $(.6,.4,0)$, find the distribution vectors of $X_1,X_2$.
+\end{problem}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{problem}
+  There are 6 coins on a table, each showing heads (H) or tails (T).
+  In each step we 
+  \begin{itemize}
+  \item Select uniformly one of the coins.
+  \item If it is heads, toss it and replace on the table (with random side).
+  \item If it is tails, toss it.
+    If it comes up heads leave it at that.
+    If if comes up tails, toss it a second time, and leave the result as it is.
+  \end{itemize}
+  Let $X_n$ be the number of heads showing after $n$ such steps.
+  \begin{enumerate}
+  \item Determine the transition probabilities for this Markov chain.
+  \item Draw the transition diagram and write the transition matrix.
+  \item What is $\P(X_2=4 | X_0=5)$?
+  \end{enumerate}
+\end{problem}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{problem}
+  Jaine is a mechanic.
+  Let $X_n$ be the number of cars they need to fix.
+  At each step, with probability 1/2 they manage to fix a car, and $X$ decreases by 1.
+  With probability 1/3 a new car is delivered for service and $X$ increases by 1, and with probability 1/6 nothing happens and $X$ stays the same.
+  If $X$ becomes 0, Jaine goes for lunch.
+  If $X$ becomes 3, the boss gets angry and fires Jaine.
+
+  \begin{enumerate}
+  \item Suppose $X_0=1$.
+    What is the probability that Jaine goes to lunch before they are fired?
+  \item What would be the answer if the boss only fires Jaine when $X=4$?
+  \end{enumerate}
+\end{problem}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{problem}
+  Consider the simple random walk on a triangle with vertices $\{0,1,2\}$.
+  This is the Markov chain that at each step moves to one of the two states other than $X_n$.
+  Prove that the $n$-step transition matrix is
+  \[
+    P^n = 
+    \begin{pmatrix}
+      a_n & b_n & b_n \\
+      b_n & a_n & b_n \\
+      b_n & b_n & a_n 
+    \end{pmatrix}, \]
+  where $a_n = \frac{1+2(-1/2)^n}{3}$ and $b_n = \frac{1-(-1/2)^n}{3}$.
+\end{problem}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{problem}
+  Alfonso, Beatrice, and Coraline play poker.
+  They start with \$1, \$2, \$3 respectively.
+  In each round, one of the three (chosen randomly) does not participate.
+  The other two each bet \$1, and one of the two wins the bet (and the other loses), again randomly and equally likely.
+  If a player has no money, they are eliminated and do not participate in future rounds.
+  Eventually one player has all \$6, and the tournament ends.
+  \begin{enumerate}
+  \item What is the probability that Alfonso is the eventual winner?
+    (Hint: compare Alfonso's money to the gambler's ruin problem.)
+  \item Let $q_A$ be the probability that Alfonso is the first one to be eliminated, and similarly $q_B,q_C$ for Beatrice and Coraline.
+    Compute $q_A,q_B,q_C$.
+    (Hint: Consider also what happens if the players have \$1,\$1,\$4.)
+  \end{enumerate}
+\end{problem}
+
+\paragraph{Extra practice problems}
+Do not hand these in. (Feel free to ask for hints is stuck.)
+
+Ross, chapter 4: problems 1,3,4,6,8,9.
+
+\end{document}

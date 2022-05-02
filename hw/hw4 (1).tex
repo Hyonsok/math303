@@ -1,0 +1,119 @@
+\documentclass{article}
+
+%some useful packages
+\usepackage{amsmath,amsthm,amsfonts,amssymb}  %math stuff
+\usepackage{graphicx} %to embed images
+\usepackage{enumitem} %fancy lists
+\usepackage{fullpage} %smaller margins
+\usepackage{color} %smaller margins
+
+%some common macros.
+\renewcommand{\P}{\mathbb P}
+\newcommand{\Z}{\mathbb Z}
+\newcommand{\E}{\mathbb E}
+\newcommand{\R}{\mathbb R}
+\newcommand{\N}{\mathbb N}
+\newcommand{\eps}{\varepsilon}
+\DeclareMathOperator{\Var}{Var}
+\DeclareMathOperator{\Poi}{Poi}
+\DeclareMathOperator{\Cov}{Cov}
+\DeclareMathOperator{\Exp}{Exp}
+\DeclareMathOperator{\Bin}{Bin}
+\DeclareMathOperator{\Geom}{Geom}
+\DeclareMathOperator{\Bernoulli}{Bernoulli}
+
+\theoremstyle{definition}
+\newtheorem{problem}{Problem}
+\setlist[itemize,1]{nosep}
+\setlist[enumerate,1]{nosep,label=(\alph*)}
+
+\newenvironment{solution}
+{\paragraph{\color{blue}Solution.}}{\medbreak}
+
+\usepackage{fancyhdr}
+\fancypagestyle{crfooter}{%
+  \fancyhf{}
+  \renewcommand\headrulewidth{0pt}
+  \fancyfoot[R]{\copyright\ Omer Angel 2022, all rights reserved.}
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{document}
+
+\thispagestyle{crfooter}
+
+\begin{center}
+  {\LARGE \textbf{Stochastic Processes}} \\
+  {\Large Assignment 4, due 2022-02-18}
+\end{center}
+
+\hrule width \textwidth \bigskip
+
+\paragraph{Note:} Start each problem on a \textbf{new page}. (Multiple pages for a single problem are fine if needed.)
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{problem}
+  Is it possible for a branching process to be reversible?
+  What can be said about $\xi$ in that case (The number of children of each individual is an independent copy of $\xi$.)
+\end{problem}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{problem}
+  Find the probability generating function $G(s) = \E s^X$ for the following distributions:
+  \begin{enumerate}
+  \item $X=\Bernoulli(p)$: here $P(X=1)=p$ and $P(X=0)=1-p$.
+  \item $X=\Bin(n,p)$.
+  \item $X=\Poi(\lambda)$.
+  \item $X=\Geom(p)$, so $P(X=n) = p(1-p)^{n-1}$ for $n=1,2,\dots$.
+  \end{enumerate}
+\end{problem}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{problem}
+  Find the probability generating function $G(s) = \E s^X$ for the following distributions:
+  \begin{enumerate}
+  \item $X=A+B$ where $A=\Bin(n,p)$ and $B=\Geom(p)$ are independent.
+  \item Let $N=\Poi(\lambda)$ and $Y_1,Y_2,\dots$ be $\Geom(p)$ for some $p,\lambda$ and all are independent.
+    Let $X = Y_1+\dots+Y_N$.
+  \item Let $N=\Geom(q)$ and $Y_1,Y_2,\dots$ be $\Geom(p)$ for some $p,q$ and all are independent.
+    Let $X = Y_1+\dots+Y_N$.
+  \end{enumerate}
+\end{problem}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{problem}
+  Consider a branching process with offspring distribution $\xi$ with
+  \begin{align*}
+    P(\xi=0) &= \alpha & 
+    P(\xi=1) &= \beta & 
+    P(\xi=2) &= 0 & 
+    P(\xi=3) &= 1-\alpha-\beta.
+  \end{align*}
+  \begin{enumerate}
+  \item If $\alpha=\beta=1/3$, find the probability the process becomes extinct.
+  \item If we start with $4$ individuals instead of 1, find the probability the process becomes extinct.
+  \item If $\alpha,\beta$ are such that $\E(\xi)=2$, what $\alpha$ and $\beta$ minimize the probability of extinction (starting with 1 individual)? What $\alpha,\beta$ maximize that probability?
+  \end{enumerate}
+\end{problem}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{problem}
+  Find transition probabilities on $S=\{0,1,2,\dots\}$ so that the stationary distribution is $\Poi(\lambda)$ and the only transitions that can hove non-zero probability are $P_{n,n-1}, P_{n,n+1}$, and $P_{n,n}$ for all $n$.
+\end{problem}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\paragraph{Extra practice problems}
+Do not hand these in. (Feel free to ask for hints is stuck.)
+
+Ross, chapter 4: problems 64,66,71,72,73,74.
+
+\paragraph{Read ahead}
+We will start Chapter 5 next week.
+
+\end{document}
